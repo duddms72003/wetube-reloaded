@@ -1,0 +1,6 @@
+/node_modules
+.env
+/uploads
+.DS_Store
+/assets
+# 절대 DB에는 파일을 저장하지 않는다. / 대신 파일의 위치를 저장한다.

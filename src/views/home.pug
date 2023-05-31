@@ -1,0 +1,10 @@
+extends base
+include mixins/video 
+
+block content
+    div.video-grid
+        each video in videos 
+            +videoMixin(video)
+        else 
+            span.empty__message No videos found
+        //-  //여기서 videos는 컨드롤러에서 변수로 붙여넣어준 const videos = await Video.find({}); 여기서의 videos랑 같은거임

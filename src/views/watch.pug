@@ -1,0 +1,56 @@
+extends base.pug
+
+block content
+    div#videoContainer(data-id=video._id)
+        video(src="/" + video.fileUrl)
+        div#videoControls.videoControls
+            div.videoControls__play
+                span#play.videoControls__playBtn
+                    i.fas.fa-play
+                div.videoControls__time 
+                    span#currentTime 00:00 
+                    span / 
+                    span#totalTime 00:00
+            input(type="range", step="1", value="0", min="0")#timeline.videoControls-timeline
+            div.videoControls__volume 
+                input(type="range", step="0.1", value=0.5, min="0", max="1")#volume
+                span#mute 
+                    i.fas.fa-volume-up
+            div 
+                span#fullScreen 
+                    i.fas.fa-expand
+    
+        
+    div.video__data
+        p.video__title=video.title
+        small.video__owner Uploaded by 
+            a(href=`/users/${video.owner._id}`)=video.owner.name
+        small.video__createdAt=new Date(video.createdAt).toLocaleDateString("Ko")
+        if String(video.owner._id) === String(loggedInUser._id)
+            a(href=`${video.id}/edit`) Edit Video &rarr;
+            br
+            a(href=`${video.id}/delete`) Delete Video &rarr;
+    if loggedIn
+        div.video__add-comments
+            form.video__comment-form#commentForm
+                textarea(cols="30", rows="10", placeholder="write comments")
+                button Add Comment
+    div.video__comments
+        ul
+            each comment in video.comments.reverse()
+                li.video__comment(data-id=comment.id)
+                    i.fas.fa-comment
+                    span   #{comment.text}
+                    //- 댓글 삭제 테스트
+                    if String(video.owner._id) === String(loggedInUser._id)
+                        span.delete_btn ❌
+
+                
+
+
+block scripts 
+    script(src="/static/js/videoPlayer.js")
+    if loggedIn
+        script(src="/static/js/commentSection.js")
+
+    //- h4 라우터를 통해 통해 여기로 오는거얌 server 를 시작으로/videos 페이지는 videoRouter랑 연결되어있고<br> 그 videoRouter에서는 videos/:id id가 붙으면 이제 watch로 가도록 연결되어있고. video.pug 파일에 a(href=`/videos/${video.id}`)=video.title 이렇게 video.id 연결되어 있어서 각자 가지고 있는 고유한 id 화면으로 이동하는거임 1이면 1, 2면 2 ( videos를 한 번에 불러오긴 싫고 video 이렇게 하나씩 불러서 쓰고 싶으니까 배열로 끊어서 가져온거지. Videos[0] 이런식으로 / 순서 쓰려고 id를 = req.params 을 별도로 구하는거임)그걸 controller에서 구해줬고
