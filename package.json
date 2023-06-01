@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/duddms72003/wetube-reloaded.git"
+    "url": "git+https://github.com/duddms72003/youtube-clone-2023.git"
   },
   "author": "Jane",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/duddms72003/wetube-reloaded/issues"
+    "url": "https://github.com/duddms72003/youtube-clone-2023/issues"
   },
-  "homepage": "https://github.com/duddms72003/wetube-reloaded#readme",
+  "homepage": "https://github.com/duddms72003/youtube-clone-2023#readme",
   "dependencies": {
     "@ffmpeg/core": "^0.11.0",
     "@ffmpeg/ffmpeg": "^0.11.6",

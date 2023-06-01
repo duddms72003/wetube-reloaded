@@ -29,7 +29,8 @@ input:not(input[type="range"]):last-child {
 }
 
 .social__btn,
-.login-btn {
+.login-btn,
+.join-btn {
   border-radius: 5px;
   padding: 12px 20px;
   background-color: white !important;
@@ -47,6 +48,7 @@ input:not(input[type="range"]):last-child {
   }
 }
 
-.login-btn {
+.login-btn,
+.join-btn {
   margin-bottom: 0 !important;
 }
