@@ -4,20 +4,22 @@
   "description": "The best way to watch videos.",
   "scripts": {
     "start": "node build/init.js",
+    "build": "npm run build:server && npm run build:assets",
     "build:server": "babel src -d build",
+    "build:assets": "webpack --mode=production",
     "dev:server": "nodemon",
-    "dev:assets": "webpack"
+    "dev:assets": "webpack --mode=development -w"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/duddms72003/youtube-clone-2023.git"
+    "url": "git+https://github.com/duddms72003/wetube-reloaded.git"
   },
   "author": "Jane",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/duddms72003/youtube-clone-2023/issues"
+    "url": "https://github.com/duddms72003/wetube-reloaded/issues"
   },
-  "homepage": "https://github.com/duddms72003/youtube-clone-2023#readme",
+  "homepage": "https://github.com/duddms72003/wetube-reloaded#readme",
   "dependencies": {
     "@ffmpeg/core": "^0.11.0",
     "@ffmpeg/ffmpeg": "^0.11.6",
