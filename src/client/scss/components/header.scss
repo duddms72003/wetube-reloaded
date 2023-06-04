@@ -4,9 +4,20 @@ header {
   justify-content: space-between;
   align-items: center;
   .header__logo {
-    color: $red;
-    font-size: 38px;
+    .fa-youtube {
+      vertical-align: middle;
+      color: $red;
+      font-size: 38px;
+      margin-right: 5px;
+    }
+    .header__text {
+      font-family: "League Gothic", sans-serif;
+      color: $white;
+      font-size: 32px;
+      vertical-align: middle;
+    }
   }
+
   ul {
     display: flex;
     justify-content: space-between;

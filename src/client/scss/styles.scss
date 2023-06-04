@@ -18,8 +18,10 @@
 @import "./screens/upload.scss";
 @import "./screens/watch.scss";
 
-// Default
+//Fonts
+@import url("https://fonts.googleapis.com/css2?family=League+Gothic&display=swap");
 
+// Default
 a {
   color: inherit;
   text-decoration: none;

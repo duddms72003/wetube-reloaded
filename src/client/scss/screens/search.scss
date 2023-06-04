@@ -14,15 +14,13 @@
     background-color: black;
     width: 90%;
   }
+
   button {
     all: unset;
-  }
-  button {
     position: absolute;
-    right: 15px;
+    right: 45px;
+    bottom: 67px;
     font-size: 18px;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0);
     cursor: pointer;
   }
 }

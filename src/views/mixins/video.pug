@@ -2,10 +2,13 @@ mixin videoMixin(video)
      a(href=`/videos/${video.id}`).video-mixin
         div.video-mixin__thumb(style=`background-image:url(${"/" + video.thumbUrl});background-size:cover;background-position:center;`)
         div.video-mixin__data
-            span.video-mixin__title=video.title 
-            div.video-mixin__meta
-                span #{video.owner.username || user.username} • 
-                span #{video.meta.views} 회
+            div
+                span.video-mixin__user
+            div 
+                span.video-mixin__title=video.title 
+                div.video-mixin__meta
+                    span #{video.owner.username || user.username} • 
+                    span #{video.meta.views} 회
 
 
             //- video에 각각 id가 존재하니까 클릭 시 해당 비디오로 이동할 수 있는거지
