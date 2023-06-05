@@ -68,6 +68,7 @@ export const postLogin = async (req, res) => {
       errorMessage: "Wrong password",
     });
   }
+  console.log("비밀번호 내놔", user.password);
 
   //여기 주목 ~ 유저가 로그인 하고 나서 그 유저에 대한 정보를 세션에 담는 중.
   //서버는 모든 요청으로부터 id가 필요하다.

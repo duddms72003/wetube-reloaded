@@ -29,4 +29,20 @@ videoSchema.static("formatHashtags", function (hashtags) {
 //"Video, 모델 이름으로 아무거나 지어준거임 "
 const Video = mongoose.model("Video", videoSchema);
 
+Video.find({}, (err, users) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  console.log(users); // 조회된 사용자 데이터 출력
+});
+
+// Video.remove({}, (err) => {
+//   if (err) {
+//     console.error(err);
+//     return;
+//   }
+//   console.log("데이터 삭제 완료");
+// });
+
 export default Video;

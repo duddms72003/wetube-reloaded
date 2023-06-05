@@ -16,10 +16,27 @@ const userSchema = new mongoose.Schema({
 //비밀번호 해싱처리
 //userSchema.pre("save", ==> 저장하기 전에 잠깐 가로채서 작업 할 수 있는 기능을 가짐.
 userSchema.pre("save", async function () {
-  if (this.isModified("passoword")) {
+  if (this.isModified("password")) {
     this.password = await bcrypt.hash(this.password, 5);
   }
 });
 
 const User = mongoose.model("User", userSchema);
+
+User.find({}, (err, users) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  console.log(users); // 조회된 사용자 데이터 출력
+});
+
+// User.remove({}, (err) => {
+//   if (err) {
+//     console.error(err);
+//     return;
+//   }
+//   console.log("데이터 삭제 완료");
+// });
+
 export default User;
