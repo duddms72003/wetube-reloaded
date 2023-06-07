@@ -68,7 +68,7 @@ export const postLogin = async (req, res) => {
       errorMessage: "Wrong password",
     });
   }
-  console.log("비밀번호 내놔", user.password);
+  // console.log("비밀번호:", user.password);
 
   //여기 주목 ~ 유저가 로그인 하고 나서 그 유저에 대한 정보를 세션에 담는 중.
   //서버는 모든 요청으로부터 id가 필요하다.
@@ -174,10 +174,11 @@ export const postEdit = async (req, res) => {
   } = req;
   //const id = req.session.user.id
   // const { name, email, username, location } = req.body;
+  // console.log("파일:", file);
   const updatedUser = await User.findByIdAndUpdate(
     _id,
     {
-      avatarUrl: file ? file.path : avatarUrl,
+      avatarUrl: file ? file.location : avatarUrl,
       name,
       email,
       username,

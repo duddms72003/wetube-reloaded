@@ -28,7 +28,7 @@ User.find({}, (err, users) => {
     console.error(err);
     return;
   }
-  console.log(users); // 조회된 사용자 데이터 출력
+  // console.log(users); // 조회된 사용자 데이터 출력
 });
 
 // User.remove({}, (err) => {

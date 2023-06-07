@@ -12,7 +12,7 @@ export const home = async (req, res) => {
 export const watch = async (req, res) => {
   const { id } = req.params; //req.param은 router가 주는 express의 기능
   const video = await Video.findById(id).populate("owner").populate("comments");
-  console.log(video);
+  // console.log(video);
   if (!video) {
     return res.render("404", { pageTitle: "Video not found." });
   }
@@ -69,7 +69,7 @@ export const postUpload = async (req, res) => {
   const {
     user: { _id },
   } = req.session;
-  console.log(video, thumb);
+  // console.log(video, thumb);
   const { video, thumb } = req.files;
   const { title, description, hashtags } = req.body; // 얘네 다 name 가저온거임
   try {
@@ -77,8 +77,8 @@ export const postUpload = async (req, res) => {
       // create - 컬렉션에 새로운 아이템을 생성해 DB에 저장하는 메서드
       title, //title:title 여기서 앞에 title은 model Video에 있는 String 타입의 title을 가져온거고 뒤에 title은 name의 title을 가져온거임
       description, //얘도 마찬가지
-      fileUrl: video[0].path,
-      thumbUrl: thumb[0].path.replace(/[\\]/g, "/"),
+      fileUrl: video[0].location,
+      thumbUrl: thumb[0].location,
       owner: _id,
       hashtags: Video.formatHashtags(hashtags),
     });
