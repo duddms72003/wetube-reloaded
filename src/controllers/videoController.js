@@ -71,14 +71,15 @@ export const postUpload = async (req, res) => {
   } = req.session;
   // console.log(video, thumb);
   const { video, thumb } = req.files;
-  const { title, description, hashtags } = req.body; // 얘네 다 name 가저온거임
+  const { title, description, hashtags } = req.body;
+  const isHeroku = process.env.NODE_ENV === "production";
   try {
     const newVideo = await Video.create({
       // create - 컬렉션에 새로운 아이템을 생성해 DB에 저장하는 메서드
       title, //title:title 여기서 앞에 title은 model Video에 있는 String 타입의 title을 가져온거고 뒤에 title은 name의 title을 가져온거임
       description, //얘도 마찬가지
-      fileUrl: video[0].location,
-      thumbUrl: thumb[0].location,
+      fileUrl: isHeroku ? video[0].location : video[0].path,
+      thumbUrl: isHeroku ? thumb[0].location : video[0].path,
       owner: _id,
       hashtags: Video.formatHashtags(hashtags),
     });
