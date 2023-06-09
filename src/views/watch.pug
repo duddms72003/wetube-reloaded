@@ -41,7 +41,7 @@ block content
                 li.video__comment(data-id=comment.id)
                     i.fas.fa-comment
                     span   #{comment.text}
-                    //- 댓글 삭제 테스트
+                    //- 댓글 삭제
                     if String(video.owner._id) === String(loggedInUser._id)
                         span.delete_btn ❌
 
