@@ -2,6 +2,11 @@
   margin-top: 20px;
   display: flex;
   flex-direction: column;
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 22px;
+  background-color: #f0f0f0;
   .video__title {
     font-size: 26px;
     margin-bottom: 5px;
@@ -16,29 +21,5 @@
       color: cornflowerblue;
       text-decoration: underline;
     }
-  }
-}
-.video__comments {
-  display: flex;
-  flex-direction: column;
-  max-width: 320px;
-  width: 100%;
-  margin: 0 auto;
-  margin-top: 20px;
-  .video__comment {
-    position: relative;
-    padding: 10px;
-    border-radius: 9999px;
-    background-color: white;
-    color: black;
-    margin-bottom: 10px;
-  }
-}
-
-.delete_btn {
-  position: absolute;
-  right: 12px;
-  &:hover {
-    cursor: pointer;
   }
 }

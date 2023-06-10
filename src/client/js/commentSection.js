@@ -8,13 +8,13 @@ const addComment = (text, id) => {
   const newComment = document.createElement("li");
   newComment.dataset.id = id;
   newComment.className = "video__comment";
-  const icon = document.createElement("i");
-  icon.className = "fas fa-comment";
+  // const icon = document.createElement("i");
+  // icon.className = "fas fa-comment";
   const span = document.createElement("span");
   span.innerText = `  ${text}`;
   const span2 = document.createElement("span");
-  span2.innerText = "❌";
-  newComment.appendChild(icon);
+  span2.innerText = "";
+  // newComment.appendChild(icon);
   newComment.appendChild(span);
   newComment.appendChild(span2);
   videoComments.prepend(newComment);
@@ -68,4 +68,15 @@ const handleDelete = async (event) => {
 
 deleteBtn.forEach((btn) => {
   btn.addEventListener("click", handleDelete);
+});
+
+//댓글리스트 hover 기능추가
+const commentList = document.querySelectorAll(".video__comment");
+commentList.forEach((comment) => {
+  comment.addEventListener("mouseenter", () => {
+    comment.querySelector(".delete_btn").classList.add("active");
+  });
+  comment.addEventListener("mouseleave", () => {
+    comment.querySelector(".delete_btn").classList.remove("active");
+  });
 });

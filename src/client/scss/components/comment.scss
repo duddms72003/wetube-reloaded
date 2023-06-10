@@ -1,26 +1,86 @@
 .video__add-comments {
+  margin: 30px 0;
   .video__comment-form {
     display: flex;
     flex-direction: column;
     width: 100%;
     border: 0;
     padding: 0;
+    background-color: transparent;
     max-width: 100%;
     textarea {
+      outline: 0;
+      height: 30px;
       font-family: "YouTube Sans", sans-serif;
       font-size: 16px;
       margin-bottom: 8px;
       padding-top: 6px;
       border: none;
       border-bottom: 1px solid #606060;
+      &:focus {
+        outline: 0;
+        border: none;
+        border-bottom: 2px solid #0f0f0f;
+      }
     }
-    button {
-      padding: 0 20px;
-      height: 36px;
-      border-radius: 18px;
-      font-size: 14px;
-      font-weight: 600;
-      font-family: "YouTube Sans", sans-serif;
+
+    .add-comment-container {
+      text-align: right;
+      .comment-btn {
+        cursor: pointer;
+        border: none;
+        text-align: center;
+        padding: 0 20px;
+        height: 36px;
+        border-radius: 18px;
+        font-size: 14px;
+        font-weight: 600;
+        font-family: "YouTube Sans", sans-serif;
+        &.cancel-comment-btn {
+          margin-right: 5px;
+          color: #333;
+        }
+        &.add-comment-btn {
+          background-color: rgb(6, 95, 212);
+          color: rgb(222, 241, 255);
+        }
+      }
     }
+  }
+}
+
+//댓글 리스트
+.video__comments {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  // max-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+  .video__comment {
+    position: relative;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    margin-bottom: 10px;
+  }
+}
+
+//댓글 삭제
+.delete_btn {
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  right: 12px;
+  color: #999;
+  &:hover {
+    cursor: pointer;
+  }
+  &.hide {
+    display: none;
+  }
+  &.active {
+    display: block;
   }
 }

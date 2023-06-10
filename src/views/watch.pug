@@ -28,22 +28,24 @@ block content
         small.video__createdAt=new Date(video.createdAt).toLocaleDateString("Ko")
         if String(video.owner._id) === String(loggedInUser._id)
             a(href=`${video.id}/edit`) Edit Video &rarr;
-            br
             a(href=`${video.id}/delete`) Delete Video &rarr;
     if loggedIn
         div.video__add-comments
             form.video__comment-form#commentForm
                 textarea(cols="30", rows="10", placeholder="Add a comment...")
-                button Add Comment
+                div.add-comment-container 
+                    span.cancel-comment-btn.comment-btn Cancel
+                    button.add-comment-btn.comment-btn Comment
     div.video__comments
         ul
             each comment in video.comments.reverse()
                 li.video__comment(data-id=comment.id)
-                    i.fas.fa-comment
+                    //- i.fas.fa-comment
                     span   #{comment.text}
                     //- 댓글 삭제
                     if String(video.owner._id) === String(loggedInUser._id)
-                        span.delete_btn ❌
+                        //- span.delete_btn <i class="fa fa-ellipsis-v"></i>
+                        span.delete_btn.hide <i class="fas fa-trash-alt"></i>
 
                 
 
