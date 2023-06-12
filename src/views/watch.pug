@@ -23,12 +23,25 @@ block content
         
     div.video__data
         p.video__title=video.title
-        small.video__owner Uploaded by 
-            a(href=`/users/${video.owner._id}`)=video.owner.name
-        small.video__createdAt=new Date(video.createdAt).toLocaleDateString("Ko")
-        if String(video.owner._id) === String(loggedInUser._id)
-            a(href=`${video.id}/edit`) Edit Video &rarr;
-            a(href=`${video.id}/delete`) Delete Video &rarr;
+
+        div.video-mixin__data
+            div.video__owner-imgcnt
+                img.video-mixin__user(src=video.owner.avatarUrl)
+            div     
+                p.video__owner 
+                    a(href=`/users/${video.owner._id}`)=video.owner.name
+
+        //- p.video__owner 
+        //-     a(href=`/users/${video.owner._id}`)=video.owner.name
+      
+        div.video__detail
+            small.video__views #{video.meta.views} 회 
+            small.video__createdAt=new Date(video.createdAt).toLocaleDateString("Ko")
+            p.video__hashtags #{video.hashtags}
+
+            if String(video.owner._id) === String(loggedInUser._id)
+                a(href=`${video.id}/edit`) Edit Video &rarr;
+                a(href=`${video.id}/delete`) Delete Video &rarr;
     if loggedIn
         div.video__add-comments
             form.video__comment-form#commentForm
@@ -43,7 +56,8 @@ block content
                     //- i.fas.fa-comment
                     span   #{comment.text}
                     //- 댓글 삭제
-                    if String(video.owner._id) === String(loggedInUser._id)
+                    //- if String(video.owner._id) === String(loggedInUser._id)
+                    if String(loggedInUser._id) === String(loggedInUser._id)
                         //- span.delete_btn <i class="fa fa-ellipsis-v"></i>
                         span.delete_btn.hide <i class="fas fa-trash-alt"></i>
 

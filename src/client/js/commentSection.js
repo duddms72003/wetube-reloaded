@@ -1,6 +1,5 @@
 const videoContainer = document.getElementById("videoContainer");
 const form = document.getElementById("commentForm");
-//댓글 삭제 테스트
 const deleteBtn = document.querySelectorAll(".delete_btn");
 
 const addComment = (text, id) => {
@@ -46,18 +45,8 @@ if (form) {
   form.addEventListener("submit", handleSubmit);
 }
 
-//댓글 삭제 테스트
+//댓글 삭제
 const handleDelete = async (event) => {
-  //   const comment = event.target.closest(".video__comment");
-  //   if (comment) {
-  //     const commentId = comment.dataset.id;
-  //     await fetch(`/api/comments/${commentId}`, {
-  //       method: "DELETE",
-  //     });
-  //     comment.remove();
-  //     // console.log("댓글이 삭제되었습니다.");
-  //   }
-
   const comment = event.target.closest(".video__comment");
   const commentId = comment.dataset.id;
   await fetch(`/api/comments/${commentId}/delete`, {
@@ -66,11 +55,12 @@ const handleDelete = async (event) => {
   comment.remove();
 };
 
+//댓글 삭제
 deleteBtn.forEach((btn) => {
   btn.addEventListener("click", handleDelete);
 });
 
-//댓글리스트 hover 기능추가
+//댓글리스트 hover 시 삭제(휴지통) 아이콘 나오도록
 const commentList = document.querySelectorAll(".video__comment");
 commentList.forEach((comment) => {
   comment.addEventListener("mouseenter", () => {

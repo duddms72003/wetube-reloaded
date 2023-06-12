@@ -2,8 +2,8 @@ mixin videoMixin(video)
      a(href=`/videos/${video.id}`).video-mixin
         div.video-mixin__thumb(style=`background-image:url(${video.thumbUrl})`)
         div.video-mixin__data
-            div
-                span.video-mixin__user
+            div.video__owner-imgcnt
+                img.video-mixin__user(src=video.owner.avatarUrl)
             div 
                 span.video-mixin__title=video.title 
                 div.video-mixin__meta

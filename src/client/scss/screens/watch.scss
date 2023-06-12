@@ -6,20 +6,33 @@
   border-radius: 12px;
   font-size: 14px;
   line-height: 22px;
-  background-color: #f0f0f0;
+
   .video__title {
-    font-size: 26px;
-    margin-bottom: 5px;
+    font-size: 20px;
+    color: #0f0f0f;
+    margin-bottom: 20px;
   }
-  .video__createdAt {
-    font-size: 12px;
-  }
-  .video__owner {
-    margin-bottom: 5px;
+
+  .video__detail {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 12px;
     font-size: 14px;
-    a {
-      color: cornflowerblue;
-      text-decoration: underline;
+    line-height: 22px;
+    background-color: #f0f0f0;
+
+    .video__createdAt {
     }
+    .video__hashtags {
+      color: #065fd4;
+    }
+  }
+}
+
+.video__owner {
+  a {
+    color: #606060;
+    font-size: 14px;
+    text-decoration: none;
   }
 }
