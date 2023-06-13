@@ -24,7 +24,11 @@
   align-items: center;
   border-radius: 10px;
   box-sizing: border-box;
-  background-color: #0f1117;
+  // background-color: #0f1117;
+}
+
+.videoControls i {
+  color: #fff;
 }
 
 .videoControls.showing {
@@ -43,6 +47,7 @@
 
 .videoControls__time {
   font-size: 12px;
+  color: #fff;
 }
 
 .videoControls__volume {

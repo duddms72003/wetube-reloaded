@@ -35,8 +35,8 @@ block content
         //-     a(href=`/users/${video.owner._id}`)=video.owner.name
       
         div.video__detail
-            small.video__views #{video.meta.views} 회 
-            small.video__createdAt=new Date(video.createdAt).toLocaleDateString("Ko")
+            p.video__views #{video.meta.views} views 
+            p.video__createdAt=new Date(video.createdAt).toLocaleDateString("Ko")
             p.video__hashtags #{video.hashtags}
 
             if String(video.owner._id) === String(loggedInUser._id)
