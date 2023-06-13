@@ -3,7 +3,6 @@ form {
   margin: 0 auto;
   padding: 30px;
   border-radius: 10px;
-  // background-color: rgba($color: #000000, $alpha: 0.5);
   border: 1px solid rgba($color: #ffffff, $alpha: 0.2);
   &input:last-child {
     margin-bottom: 0;
@@ -26,6 +25,35 @@ input:not(input[type="range"]) {
 
 input:not(input[type="range"]):last-child {
   margin-bottom: 0;
+}
+
+//videoControls-timeline
+input[type="range"] {
+  -webkit-appearance: none;
+  overflow: hidden;
+  width: 100%;
+  height: 5px;
+  background: transparent;
+  cursor: pointer;
+  background-color: rgba(83, 83, 83, 0.4);
+  border-radius: 0; /* iOS */
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 0;
+  height: 5px;
+  background: rgba(83, 83, 83, 0.4);
+  box-shadow: -100vw 0 0 100vw #ff0001;
+  cursor: pointer;
+}
+
+.videoControls__volume input[type="range"]::-webkit-slider-thumb {
+  box-shadow: -100vw 0 0 100vw #fff;
 }
 
 .social__btn,
