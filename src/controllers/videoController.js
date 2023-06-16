@@ -12,7 +12,7 @@ export const home = async (req, res) => {
 export const watch = async (req, res) => {
   const { id } = req.params; //req.param은 router가 주는 express의 기능
   const video = await Video.findById(id).populate("owner").populate("comments");
-  // console.log(video);
+
   if (!video) {
     return res.render("404", { pageTitle: "Video not found." });
   }
@@ -154,9 +154,12 @@ export const createComment = async (req, res) => {
   }
 
   const comment = await Comment.create({
+    //수정시작
     text,
     owner: user._id,
     video: id,
+    creatorUsername: user.username,
+    creatorAvatarUrl: user.avatarUrl,
   });
 
   // console.log(user, text, id);
@@ -166,7 +169,11 @@ export const createComment = async (req, res) => {
 
   video.comments.push(comment._id);
   video.save();
-  return res.status(201).json({ newCommentId: comment._id });
+  return res.status(201).json({
+    newCommentId: comment._id,
+    commentUsername: user.username,
+    commentAvatarUrl: user.avatarUrl,
+  });
 };
 
 //댓글 삭제 테스트
